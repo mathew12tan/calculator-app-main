@@ -1,0 +1,344 @@
+/* ### Theme 1
+#### Backgrounds
+- Very dark desaturated blue (main background): hsl(222, 26%, 31%)
+- Very dark desaturated blue (toggle background, keypad background): hsl(223, 31%, 20%)
+- Very dark desaturated blue (screen background): hsl(224, 36%, 15%)
+
+#### Keys
+- Desaturated dark blue (key background): hsl(225, 21%, 49%)
+- Desaturated dark blue (key shadow): hsl(224, 28%, 35%)
+- Red (key background, toggle): hsl(6, 63%, 50%)
+- Dark red (key shadow): hsl(6, 70%, 34%)
+- Light grayish orange (key background): hsl(30, 25%, 89%)
+- Grayish orange (key shadow): hsl(28, 16%, 65%)
+
+#### Text
+- Very dark grayish blue: hsl(221, 14%, 31%)
+- White: hsl(0, 0, 100%)
+
+### Theme 2
+#### Backgrounds
+
+- Light gray (main background): hsl(0, 0%, 90%)
+- Grayish red (toggle background, keypad background): hsl(0, 5%, 81%)
+- Very light gray (screen background): hsl(0, 0%, 93%)
+
+#### Keys
+- Dark moderate cyan (key background): hsl(185, 42%, 37%)
+- Very dark cyan (key shadow): hsl(185, 58%, 25%)
+- Orange (key background, toggle): hsl(25, 98%, 40%)
+- Dark orange (key shadow): hsl(25, 99%, 27%)
+- Light grayish yellow (key background): hsl(45, 7%, 89%)
+- Dark grayish orange (key shadow): hsl(35, 11%, 61%)
+
+#### Text
+- Very dark grayish yellow: hsl(60, 10%, 19%)
+- White (text): hsl(0, 0, 100%)
+
+### Theme 3
+#### Backgrounds
+- Very dark violet (main background): hsl(268, 75%, 9%)
+- Very dark violet (toggle background, keypad background, screen background): hsl(268, 71%, 12%)
+
+#### Keys
+- Dark violet (key background): hsl(281, 89%, 26%)
+- Vivid magenta (key shadow): hsl(285, 91%, 52%)
+- Pure cyan (key background, toggle): hsl(176, 100%, 44%)
+- Soft cyan (key shadow): hsl(177, 92%, 70%)
+- Very dark violet (key background): hsl(268, 47%, 21%)
+- Dark magenta (key shadow): hsl(290, 70%, 36%)
+
+#### Text
+- Light yellow: hsl(52, 100%, 62%)
+- Very dark blue: hsl(198, 20%, 13%)
+- White (text): hsl(0, 0, 100%) */
+
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Spartan", sans-serif;
+  font-size: 32px;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: hsl(222, 26%, 31%);
+  color: white;
+}
+
+.theme-2 {
+  background-color: hsl(0, 0%, 90%);
+  color: hsl(60, 10%, 19%);
+}
+
+.theme-3 {
+  background-color: hsl(268, 75%, 9%);
+  color: hsl(52, 100%, 62%);
+}
+
+.calc {
+  width: 10.2em;
+}
+
+/* heading */
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+}
+
+/* theme */
+.theme {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  row-gap: 0.15em;
+  column-gap: 0.8em;
+}
+
+.theme-number {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 0.4em;
+  display: flex;
+}
+
+.theme-number span {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.theme label {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 0.4em;
+  margin-top: 0.2em;
+}
+
+.theme-selector {
+  grid-column: 2;
+  grid-row: 2;
+  -webkit-appearance: none;
+  width: 70px;
+  border-radius: 15px;
+  background: hsl(223, 31%, 20%);
+  padding: 5px;
+}
+.theme-selector::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: hsl(6, 63%, 50%);
+}
+.theme-selector::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+.theme-2 .theme-selector {
+  background: hsl(0, 5%, 81%);
+}
+
+.theme-3 .theme-selector {
+  background: hsl(268, 71%, 12%);
+}
+
+.theme-2 .theme-selector::-webkit-slider-thumb {
+  background-color: hsl(25, 98%, 40%);
+}
+
+.theme-3 .theme-selector::-webkit-slider-thumb {
+  background-color: hsl(176, 100%, 44%);
+}
+
+/* display */
+.display {
+  background-color: hsl(224, 36%, 15%);
+  min-height: 3em;
+  margin: 1em 0 0.8em;
+  padding: 0.5em 0.7em;
+  border-radius: 0.3em;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.theme-2 .display {
+  background-color: hsl(0, 0%, 93%);
+}
+
+.theme-3 .display {
+  background-color: hsl(268, 71%, 12%);
+}
+
+.operand {
+  font-size: 0.5em;
+  min-height: 1em;
+}
+
+.result {
+  font-size: 1em;
+}
+
+.smallerText {
+  font-size: 0.7em;
+}
+
+/* keys */
+.keys {
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 0.3em;
+  padding: 0.8em;
+  height: 13.15em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5em;
+}
+
+.theme-2 .keys {
+  background-color: hsl(0, 5%, 81%);
+}
+
+.theme-3 .keys {
+  background-color: hsl(268, 71%, 12%);
+}
+
+button {
+  font-family: "Spartan", sans-serif;
+  font-size: 0.85em;
+  background-color: hsl(30, 25%, 89%);
+  border: none;
+  border-radius: 0.2em;
+  box-shadow: 0px 4px hsl(28, 16%, 65%);
+  color: hsl(221, 14%, 31%);
+  padding-top: 0.25em;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.5;
+}
+button:active {
+  opacity: 0.8;
+}
+
+.theme-2 button {
+  background-color: hsl(45, 7%, 89%);
+  box-shadow: 0px 4px hsl(35, 11%, 61%);
+  color: hsl(60, 10%, 19%);
+}
+
+.theme-3 button {
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0px 4px hsl(290, 70%, 36%);
+  color: hsl(52, 100%, 62%);
+}
+
+.delete,
+.reset,
+.equal {
+  font-size: 0.6em;
+  color: white;
+}
+
+.theme-2 .delete, .theme-2 .reset, .theme-2 .equal {
+  color: white;
+}
+
+.delete,
+.reset {
+  background-color: hsl(225, 21%, 49%);
+  box-shadow: 0px 4px hsl(224, 28%, 35%);
+}
+
+.theme-2 .delete,
+.theme-2 .reset {
+  background-color: hsl(185, 42%, 37%);
+  box-shadow: 0px 4px hsl(185, 58%, 25%);
+}
+
+.theme-3 .delete,
+.theme-3 .reset {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0px 4px hsl(285, 91%, 52%);
+  color: white;
+}
+
+.equal {
+  background-color: hsl(6, 63%, 50%);
+  box-shadow: 0px 4px hsl(6, 70%, 34%);
+}
+
+.theme-2 .equal {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: 0px 4px hsl(25, 99%, 27%);
+}
+
+.theme-3 .equal {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0px 4px hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+
+.reset {
+  grid-column: 1 / 3;
+}
+
+.equal {
+  grid-column: 3 / 5;
+}
+
+/* attribution */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin: 2em 0 3em;
+}
+.attribution a {
+  color: hsl(6, 63%, 50%);
+  text-decoration: none;
+}
+
+.theme-2 .attribution a {
+  color: hsl(185, 42%, 37%);
+}
+
+.theme-3 .attribution a {
+  color: white;
+}
+
+@media screen and (min-width: 900px) {
+  .calc {
+    width: 17em;
+  }
+  .display {
+    min-height: 3.75em;
+  }
+  .operand {
+    font-size: 0.7em;
+  }
+  .result {
+    font-size: 1.5em;
+  }
+  .smallerText {
+    font-size: 1em;
+  }
+  .keys {
+    height: 15em;
+    gap: 0.8em;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/icons8-calculator-48.png">
+  <title>Calculator app</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="calc">
+    <div class="heading">
+      <p>calc</p>
+      <div class="theme">
+        <p class="theme-number"><span>1</span><span>2</span><span>3</span></p>
+        <label for="selector">THEME</label>
+        <input class="theme-selector" type="range" min="1" max="3" step="1" value="1" id="selector">
+      </div>
+    </div>
+    <div class="display">
+      <p data-displayTop class="operand"></p>
+      <p data-displayBottom class="result">0</p>
+    </div>
+    <div class="keys">
+      <button data-number>7</button>
+      <button data-number>8</button>
+      <button data-number>9</button>
+      <button data-delete class="delete">DEL</button>
+      <button data-number>4</button>
+      <button data-number>5</button>
+      <button data-number>6</button>
+      <button data-operator>+</button>
+      <button data-number>1</button>
+      <button data-number>2</button>
+      <button data-number>3</button>
+      <button data-operator>-</button>
+      <button data-number>.</button>
+      <button data-number>0</button>
+      <button data-operator>/</button>
+      <button data-operator>x</button>
+      <button data-reset class="reset">RESET</button>
+      <button data-equal class="equal">=</button>
+    </div>
+    <div class="attribution">
+      Coded by <a href="https://github.com/mathew12tan?tab=repositories">Mathew</a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
