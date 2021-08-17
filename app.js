@@ -44,12 +44,9 @@ class Calculator {
   delete() {
     if (this.displayTopText.innerText.includes("=")) {
       this.operator = undefined;
-      this.currentNumber = "";
+      this.currentNumber = this.currentNumber;
     } else {
       this.currentNumber = this.currentNumber.toString().slice(0, -1);
-    }
-    if (this.currentNumber == 0) {
-      this.currentNumber = "0";
     }
     if (this.prevNumber !== "") {
       this.arrayNumber.push(this.currentNumber);
@@ -57,22 +54,23 @@ class Calculator {
   }
 
   appendNumber(number) {
-    if (number === "." && this.currentNumber == 0) {
+    if (number === "." && (this.currentNumber == 0 || this.arrayNumber.length == 1)) {
       this.currentNumber = "0.";
     }
-    if (number === "." && this.arrayNumber.length == 1) {
-      this.currentNumber = "0.";
-    }
-    if (number === "." && this.currentNumber.includes(".")) return;
+    if (number === "." && this.currentNumber.toString().includes(".")) return;
     if (this.currentNumber === this.prevNumber) {
       this.currentNumber = number.toString()
     } else {
       this.currentNumber = this.currentNumber.toString() + number.toString();
-    }    
+    }
     if (this.displayTopText.innerText.includes("=")) {
-      this.currentNumber = number.toString();
+      if (number === ".") {
+        this.currentNumber = "0.";
+      } else {
+        this.currentNumber = number.toString();
+      }
       this.prevNumber = "";
-      this.operator = "";
+      this.operator = undefined;
     }
     if (this.arrayNumber.length === 1) {
       this.arrayNumber.push(number);
@@ -163,7 +161,7 @@ class Calculator {
       this.displayTopText.innerText = `${this.getDisplayNumber(this.prevNumber)} ${this.operator} ${this.getDisplayNumber(this.result)} =`;
     }
     if (this.currentNumber === "") {
-      this.displayBottomText.innerText = "0";
+      this.displayBottomText.innerText = 0;
     }
     if (this.currentNumber === Infinity) {
       this.displayTopText.innerText = `${this.getDisplayNumber(this.prevNumber)} / ${this.getDisplayNumber(this.result)} =`;
